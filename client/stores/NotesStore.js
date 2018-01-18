@@ -10,15 +10,13 @@ let _loadingError = null;
 let _isLoading = true;
 
 function formatNote(note) {
-  console.log('note',note);
+  //console.log('note',note);
   return {
     id: note._id,
-    title: note.title,
-    text: note.text,
+    itemId: note.itemId,
+    itemName: note.itemName,
     price: note.price,
-    quantity: note.quantity,
-    color: note.color || '#ffffff',
-    createdAt: note.createdAt
+    quantity: note.quantity
   };
 }
 

@@ -31,10 +31,10 @@ const NotesGrid = React.createClass({
           {this.props.notes.map((item, index) => {
             return (
               <tr key={index} onClick={this.activeRow}>
-                <td>{item.title}</td>
-                <td>{item.title}</td>
-                <td>{item.title}</td>
-                <td>{item.title}</td>
+                <td>{item.itemId}</td>
+                <td>{item.itemName}</td>
+                <td>{item.price}</td>
+                <td>{item.quantity}</td>
                 <td style={{textAlign: 'center'}}><a href="#"><FontAwesome name='shopping-cart'/></a></td>
               </tr>
             )

@@ -42,6 +42,7 @@ const App = React.createClass({
   },
 
   render() {
+    console.log('app state', this.state);
     return (
       <div className='App'>
         <h2 className='App__header'>Mobile Catalog</h2>

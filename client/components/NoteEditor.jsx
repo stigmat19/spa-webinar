@@ -5,24 +5,27 @@ import './NoteEditor.less';
 const NoteEditor = React.createClass({
   getInitialState() {
     return {
-      title: '',
-      text: '',
+      itemId: '',
+      itemName: '',
       price: '',
-      quantity: '',
-      color: '#FFFFFF'
+      quantity: ''
     };
   },
 
   handleTextChange(event) {
-    this.setState({text: event.target.value});
+    this.setState({itemName: event.target.value});
   },
 
   handleTitleChange(event) {
-    this.setState({title: event.target.value});
+    this.setState({itemId: event.target.value});
   },
 
   handlePriceChange(event) {
     this.setState({price: event.target.value});
+  },
+
+  handleQuantityChange(event) {
+    this.setState({quantity: event.target.value});
   },
 
   handleColorChange(color) {
@@ -31,15 +34,14 @@ const NoteEditor = React.createClass({
 
   handleNoteAdd() {
     const newNote = {
-      title: this.state.title,
-      text: this.state.text,
+      itemId: this.state.itemId,
+      itemName: this.state.itemName,
       price: this.state.price,
-      quantity: this.state.quantity,
-      color: this.state.color
+      quantity: this.state.quantity
     };
 
     this.props.onNoteAdd(newNote);
-    this.setState({text: '', title: '', price: '', color: '#FFFFFF'});
+    this.setState({itemId: '', itemName: '', price: '', quantity: ''});
   },
 
   render() {
@@ -49,13 +51,13 @@ const NoteEditor = React.createClass({
           type='text'
           className='NoteEditor__title'
           placeholder='Enter id'
-          value={this.state.title}
+          value={this.state.itemId}
           onChange={this.handleTitleChange}
         />
         <input
           placeholder='Enter name'
           className='NoteEditor__text'
-          value={this.state.text}
+          value={this.state.itemName}
           onChange={this.handleTextChange}
         />
         <input
@@ -67,13 +69,13 @@ const NoteEditor = React.createClass({
         <input
           placeholder='Enter quantity'
           className='NoteEditor__text'
-          value={this.state.text}
-          //onChange={this.handleTextChange}
+          value={this.state.quantity}
+          onChange={this.handleQuantityChange}
         />
         <div className='NoteEditor__footer'>
           <button
             className='NoteEditor__button'
-            disabled={!this.state.text}
+            // disabled={!this.state.text}
             onClick={this.handleNoteAdd}
           >
             Add
