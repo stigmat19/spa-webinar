@@ -18,6 +18,8 @@ export function createNote(data) {
     const note = new Note({
         title: data.title,
         text: data.text,
+        price: data.price,
+        quantity: data.quantity,
         color: data.color,
         createdAt: new Date()
     });

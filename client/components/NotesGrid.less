@@ -1,3 +1,22 @@
-.NotesGrid {
-    margin: 0 auto;
+.mobileTable {
+  width: 1000px;
+  margin: 0 auto;
+  border: 1px solid #000;
+
+  & tr{
+    //background-color: #fff;
+    &.head{
+      font-weight: bold;
+    }
+    &:nth-child(odd){
+      background-color: #fff;
+    }
+    &.active{
+      background-color: #a7e4bb;
+    }
+    & td{
+      border: 1px solid #000;
+      padding: 5px;
+    }
+  }
 }

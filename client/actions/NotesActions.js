@@ -25,6 +25,7 @@ const NoteActions = {
     },
 
     createNote(note) {
+      console.log('action', note);
         api.createNote(note)
         .then(() =>
             this.loadNotes()
