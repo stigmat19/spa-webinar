@@ -6,8 +6,6 @@ import NotesActions from '../actions/NotesActions';
 import NoteEditor from './NoteEditor.jsx';
 import NotesGrid from './NotesGrid.jsx';
 
-import Modal from './modal/Modal';
-
 import './App.less';
 
 function getStateFromFlux() {
@@ -47,7 +45,6 @@ const App = React.createClass({
     //console.log('app state', this.state);
     return (
       <div className='App'>
-        <Modal/>
         <h2 className='App__header'>Mobile Catalog</h2>
         <NoteEditor onNoteAdd={this.handleNoteAdd}/>
         <NotesGrid notes={this.state.notes}
