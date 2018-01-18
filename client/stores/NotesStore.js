@@ -43,7 +43,7 @@ const TasksStore = Object.assign({}, EventEmitter.prototype, {
 });
 
 AppDispatcher.register(function (action) {
-  console.log('new actions', action);
+  //console.log('new actions', action);
   switch (action.type) {
     case AppConstants.LOAD_NOTES_REQUEST: {
       _isLoading = true;
@@ -56,7 +56,7 @@ AppDispatcher.register(function (action) {
       _isLoading = false;
       _notes = action.notes.map(formatNote);
       _loadingError = null;
-      console.log('formatNote', _notes);
+      //console.log('formatNote', _notes);
       TasksStore.emitChange();
       break;
     }

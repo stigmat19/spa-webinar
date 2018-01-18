@@ -24,7 +24,7 @@ app.get('/notes', (req, res) => {
 });
 
 app.post('/notes', (req, res) => {
-  console.log(req.body);
+  //console.log(req.body);
   db.createNote(req.body).then(data => res.send(data));
 });
 

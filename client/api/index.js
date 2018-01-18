@@ -8,7 +8,7 @@ export default {
     },
 
     createNote(data) {
-        console.log('api',data);
+        //console.log('api',data);
         return axios.post(`${apiPrefix}/notes`, data);
     },
 

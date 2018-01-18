@@ -13,18 +13,42 @@ const NoteEditor = React.createClass({
   },
 
   handleTextChange(event) {
+    if(isNaN(parseInt(event.target.value))){
+      event.target.setAttribute('class', 'NoteEditor__title success');
+    }
+    else{
+      event.target.setAttribute('class', 'NoteEditor__title error ');
+    }
     this.setState({itemName: event.target.value});
   },
 
   handleTitleChange(event) {
+    if(isNaN(parseInt(event.target.value))){
+      event.target.setAttribute('class', 'NoteEditor__title error');
+    }
+    else{
+      event.target.setAttribute('class', 'NoteEditor__title success');
+    }
     this.setState({itemId: event.target.value});
   },
 
   handlePriceChange(event) {
+    if(isNaN(parseInt(event.target.value))){
+      event.target.setAttribute('class', 'NoteEditor__title error');
+    }
+    else{
+      event.target.setAttribute('class', 'NoteEditor__title success');
+    }
     this.setState({price: event.target.value});
   },
 
   handleQuantityChange(event) {
+    if(isNaN(parseInt(event.target.value))){
+      event.target.setAttribute('class', 'NoteEditor__title error');
+    }
+    else{
+      event.target.setAttribute('class', 'NoteEditor__title success');
+    }
     this.setState({quantity: event.target.value});
   },
 
@@ -56,19 +80,19 @@ const NoteEditor = React.createClass({
         />
         <input
           placeholder='Enter name'
-          className='NoteEditor__text'
+          className='NoteEditor__title'
           value={this.state.itemName}
           onChange={this.handleTextChange}
         />
         <input
           placeholder='Enter price'
-          className='NoteEditor__text'
+          className='NoteEditor__title'
           value={this.state.price}
           onChange={this.handlePriceChange}
         />
         <input
           placeholder='Enter quantity'
-          className='NoteEditor__text'
+          className='NoteEditor__title'
           value={this.state.quantity}
           onChange={this.handleQuantityChange}
         />

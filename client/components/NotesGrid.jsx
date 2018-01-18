@@ -16,6 +16,21 @@ const NotesGrid = React.createClass({
     }
   },
 
+  products: [{
+    id: 1,
+    name: "Item name 1",
+    price: 100
+  }, {
+    id: 2,
+    name: "Item name 2",
+    price: 100
+  },],
+// It's a data format example.
+
+  priceFormatter(cell, row) {
+    return '<i class="glyphicon glyphicon-usd"></i> ' + cell;
+  },
+
   render() {
     return (
       <div>
@@ -49,4 +64,8 @@ const NotesGrid = React.createClass({
 export default NotesGrid;
 
 
-//onDelete={this.props.onNoteDelete.bind(null, note)}
+//<BootstrapTable data={this.products} striped={true} hover={true}>
+//<TableHeaderColumn dataField="id" isKey={true} dataAlign="center" dataSort={true}>Product ID</TableHeaderColumn>
+//<TableHeaderColumn dataField="name" dataSort={true}>Product Name</TableHeaderColumn>
+//<TableHeaderColumn dataField="price" dataFormat={this.priceFormatter}>Product Price</TableHeaderColumn>
+//</BootstrapTable>
