@@ -28,8 +28,9 @@ app.post('/notes', (req, res) => {
   db.createNote(req.body).then(data => res.send(data));
 });
 
-app.delete('/notes/:id', (req, res) => {
-  db.deleteNote(req.params.id).then(data => res.send(data));
+app.post('/notes', (req, res) => {
+  console.log(req.body);
+  db.updateNote(req.body).then(data => res.send(data));
 });
 
 const server = app.listen(serverPort, function () {

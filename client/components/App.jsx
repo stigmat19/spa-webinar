@@ -32,13 +32,18 @@ const App = React.createClass({
     NotesStore.removeChangeListener(this._onChange);
   },
 
-  handleNoteDelete(note) {
-    NotesActions.deleteNote(note.id);
+  handleNoteupdate(note) {
+    NotesActions.updateNote(note.id);
   },
 
   handleNoteAdd(noteData) {
     //console.log('app', noteData);
     NotesActions.createNote(noteData);
+  },
+
+  handleNoteUpdate(noteNewData){
+    //console.log('app',noteNewData);
+    NotesActions.updateNote(noteNewData);
   },
 
   render() {
@@ -47,8 +52,9 @@ const App = React.createClass({
       <div className='App'>
         <h2 className='App__header'>Mobile Catalog</h2>
         <NoteEditor onNoteAdd={this.handleNoteAdd}/>
-        <NotesGrid notes={this.state.notes}
-                   onNoteDelete={this.handleNoteDelete}/>
+        <NotesGrid
+          notes={this.state.notes}
+          onNoteUpdate={this.handleNoteUpdate}/>
       </div>
     );
   },

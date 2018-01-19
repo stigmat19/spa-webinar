@@ -2,6 +2,53 @@
   width: 1000px;
   margin: 0 auto;
   border: 1px solid #000;
+  position: relative;
+
+  & .Buy__button{
+    position: absolute;
+    border: 0 none;
+    border-radius: 24px;
+    padding: 8px 35px;
+    margin: 10px;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 160px;
+    flex: 0 0 160px;
+    text-align: center;
+    line-height: 1.3;
+    font-size: 15px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: all 100ms ease-in-out;
+    background: #3ac569;
+    bottom: 15px;
+    right: 30px;
+
+    &:hover {
+      opacity: .9;
+      transition: all 100ms ease;
+    }
+
+    &:active {
+      opacity: .75;
+      transform: scale(.97);
+      transition: all 100ms ease;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+  }
 
   & .react-bs-table-pagination{
     & .row{

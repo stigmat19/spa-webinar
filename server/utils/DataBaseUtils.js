@@ -26,7 +26,7 @@ export function createNote(data) {
 }
 
 
-export function deleteNote(id) {
-  return Note.findById(id).remove();
+export function updateNote(newData) {
+  return Note.update({_id : newData._id}, {_id : newData._id, quantity : newData.quantity}, {upsert: true})
 }
 

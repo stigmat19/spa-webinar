@@ -10,12 +10,30 @@ const NotesGrid = React.createClass({
     return '<i class="glyphicon glyphicon-usd"></i> ' + cell;
   },
 
+  handleRowSelect(row, isSelected, e) {
+    console.log('row',row);
+    this.setState({
+      _id       : row._id,
+      quantity  : row.quantity
+    })
+  },
+
+  buyItem(){
+    const newMobileItem = {
+      _id: this.state._id,
+      quantity: this.state.quantity-1
+    };
+
+    this.props.onNoteUpdate(newMobileItem);
+  },
+
   render() {
     let products = [];
-
+    //console.log('state',this.state);
     this.props.notes.map((item, index) =>{
       //console.log(item);
       products.push({
+        _id: item.id,
         id: item.itemId,
         name: item.itemName,
         price: item.price,
@@ -24,9 +42,10 @@ const NotesGrid = React.createClass({
     });
 
     const selectRow = {
-      mode: 'checkbox',  // multi select
+      mode: 'radio',  // multi select
       bgColor: '#a7e4bb',
-      clickToSelect: true
+      clickToSelect: true,
+      onSelect: this.handleRowSelect
     };
 
     const options = {
@@ -70,36 +89,10 @@ const NotesGrid = React.createClass({
             dataSort={true}>Quantity
           </TableHeaderColumn>
         </BootstrapTable>
+        <button className="Buy__button" onClick={this.buyItem}>Buy</button>
       </div>
     );
   }
 });
 
 export default NotesGrid;
-
-
-
-
-
-//<table className="mobileTable">
-//  <tbody>
-//  <tr className="head">
-//    <td>Id</td>
-//    <td>Name</td>
-//    <td>Price</td>
-//    <td>Quantity</td>
-//    <td>Add Item</td>
-//  </tr>
-//  {this.props.notes.map((item, index) => {
-//    return (
-//      <tr key={index} onClick={this.activeRow}>
-//        <td>{item.itemId}</td>
-//        <td>{item.itemName}</td>
-//        <td>{item.price}</td>
-//        <td>{item.quantity}</td>
-//        <td style={{textAlign: 'center'}}><a href="#"><FontAwesome name='shopping-cart'/></a></td>
-//      </tr>
-//    )
-//  })}
-//  </tbody>
-//</table>
