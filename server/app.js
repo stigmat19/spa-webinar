@@ -28,7 +28,7 @@ app.post('/notes', (req, res) => {
   db.createNote(req.body).then(data => res.send(data));
 });
 
-app.post('/notes', (req, res) => {
+app.patch('/notes', (req, res) => {
   console.log(req.body);
   db.updateNote(req.body).then(data => res.send(data));
 });

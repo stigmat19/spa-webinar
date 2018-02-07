@@ -30,3 +30,5 @@ export function updateNote(newData) {
   return Note.update({_id : newData._id}, {_id : newData._id, quantity : newData.quantity}, {upsert: true})
 }
 
+
+// Note.update({itemId : 128}, {itemId : 128, quantity : 390}, {upsert: true});

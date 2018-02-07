@@ -14,6 +14,6 @@ export default {
 
     updateNote(newdata) {
         console.log('api', newdata);
-        return axios.post(`${apiPrefix}/notes/`, newdata);
+        return axios.patch(`${apiPrefix}/notes/`, newdata);
     }
 }
